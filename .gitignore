@@ -1,0 +1,5 @@
+*.DC_Store
+*.project
+*.pyc
+count_key.py
+
