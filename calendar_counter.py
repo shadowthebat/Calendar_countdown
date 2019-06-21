@@ -10,13 +10,17 @@ canada = upcomming(can)
 
 
 os.system('clear')
-
-# creating the countdowns and displaying the results
+master = {}
+# create and add countdowns to master dictionary
 bday = D('birthday', bday)
-bday.display()
+master[bday.dist.days] = bday
 
 ny = D('new years', ny)
-ny.display()
+master[ny.dist.days] = ny
 
 canada = D('canada day', can)
-canada.display()
+master[canada.dist.days] = canada
+
+# prints countdowns from soonest to latest
+for i in sorted(master.keys()):
+    master[i].display()
