@@ -8,11 +8,12 @@ class D:
         self.dist = cal_dist(d_input)
         self.dist_months = cal_months(self.dist.days)
         self.date_formated = d_format(self.d_input)
+        self.day_of_week = day_of_week(self.d_input)
     
     
     def display(self):
         ''' Displays the distance between two dates '''
-        print(f'{self.label:} {self.date_formated}')
+        print(f'{self.label:} {self.date_formated} {self.day_of_week}')
         print(f'- {self.dist_months} months')
         print(f'- {self.dist.days} days')
         print()
@@ -46,3 +47,7 @@ def t_format(x):
         return time
     else:
         return x
+
+def day_of_week(x):
+    days = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday' ,3: 'Thursday' ,4: 'Friday',5: 'Saturday' ,6: 'Sunday'}
+    return days[x.weekday()]
