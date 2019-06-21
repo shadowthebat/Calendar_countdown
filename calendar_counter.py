@@ -15,6 +15,8 @@ remember = upcomming(remember)
 xmas = upcomming(xmas)
 valen = upcomming(valen)
 stpat = upcomming(stpat)
+nana = upcomming(nana)
+andy = upcomming(andy)
 
 
 os.system('clear')
@@ -63,6 +65,15 @@ master[stpat.dist.days] = stpat
 
 victoria = D('vitoria day', victoria_day())
 master[victoria.dist.days] = victoria
+
+nana = D('nanas bday', nana)
+master[nana.dist.days] = nana
+
+andy = D('andys bday', andy)
+master[andy.dist.days] = andy
+
+mothers = D('mothers day', mothers_day())
+master[mothers.dist.days] = mothers
 
 if len(sys.argv) == 2 and sys.argv[1] == 'head':
     # prints head (5) of calendar
