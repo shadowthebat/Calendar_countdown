@@ -49,10 +49,12 @@ def t_format(x):
         return x
 
 def day_of_week(x):
+    ''' converts weekday() digit to human readable weekday '''
     days = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday' ,3: 'Thursday' ,4: 'Friday',5: 'Saturday' ,6: 'Sunday'}
     return days[x.weekday()]
 
 def thanks_giving(x=d.now().year):
+    ''' second monday of october '''
     mondays = []
     for i in range(1, 15):
         if d(x, 10, i).weekday() == 0:
@@ -68,6 +70,7 @@ def thanks_giving(x=d.now().year):
             return d(x+1, 10, mondays[1])
 
 def labour_day(x=d.now().year):
+    ''' first monday of september '''
     mondays = []
     for i in range(1, 8):
         if d(x, 9, i).weekday() == 0:
@@ -83,6 +86,7 @@ def labour_day(x=d.now().year):
             return d(x+1, 9, mondays[0])
 
 def victoria_day(x=d.now().year):
+    ''' monday between the 18th and 24th of may inclusive '''
     mondays = []
     for i in range(18, 25):
         if d(x, 5, i).weekday() == 0:
@@ -98,6 +102,7 @@ def victoria_day(x=d.now().year):
             return d(x+1, 5, mondays[0])
 
 def mothers_day(x=d.now().year):
+    ''' second sunday of may '''
     sundays = []
     for i in range(1, 15):
         if d(x, 5, i).weekday() == 6:
@@ -113,6 +118,7 @@ def mothers_day(x=d.now().year):
             return d(x+1, 5, sundays[1])
 
 def fathers_day(x=d.now().year):
+    ''' third sunday in june '''
     sundays = []
     for i in range(1, 22):
         if d(x, 6, i).weekday() == 6:
