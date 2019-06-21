@@ -10,8 +10,6 @@ canada = upcomming(can)
 kbd = upcomming(kbd)
 mbd = upcomming(mbd)
 stj = upcomming(stj)
-labour = upcomming(labour)
-thanks = upcomming(thanks)
 hallow = upcomming(hallow)
 remember = upcomming(remember)
 xmas = upcomming(xmas)
@@ -41,13 +39,13 @@ master[mbd.dist.days] = mbd
 
 stj = D('st. jean', stj)
 master[stj.dist.days] = stj
-'''
-labour = D('labour day', labour)
+
+labour = D('labour day', labour_day())
 master[labour.dist.days] = labour
 
-thanks = D('thanks giving', thanks)
+thanks = D('thanks giving', thanks_giving())
 master[thanks.dist.days] = thanks
-'''
+
 hallow = D('halloween', hallow)
 master[hallow.dist.days] = hallow
 
@@ -62,6 +60,9 @@ master[valen.dist.days] = valen
 
 stpat = D('st patricks day', stpat)
 master[stpat.dist.days] = stpat
+
+victoria = D('vitoria day', victoria_day())
+master[victoria.dist.days] = victoria
 
 if len(sys.argv) == 2 and sys.argv[1] == 'head':
     # prints head (5) of calendar
