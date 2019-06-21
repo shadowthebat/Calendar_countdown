@@ -3,22 +3,23 @@ from count_key import *
 import os
 
 class D:
-    ''' the date count class'''
+    ''' the date count class '''
     def __init__(self, label, d1):
         self.label = label
         self.d1 = d1
         self.dist = None
+    
 
     def display_distance(self):
-        ''' Calculates distance between to dates and prints results'''
+        ''' Calculates distance between two dates and prints results '''
         if self.d1 > d.now():
             self.dist = self.d1 - d.now()
         else:
             self.dist = d.now() - self.d1
     
-        print(f'{self.label.upper():}')
-        print(f'- {self.dist.days/30} months')
-        print(f'- {self.dist}')
+        print(f'{self.label.upper():} {t_format(self.d1.day)}-{t_format(self.d1.month)}-{self.d1.year}')
+        print(f'- {round(self.dist.days/30, 1)} months')
+        print(f'- {self.dist.days} days')
         print()
 
 def year_finder(key_value):
@@ -27,6 +28,14 @@ def year_finder(key_value):
         return d(d.now().year + 1, key_value.month, key_value.day)
     else:
         return d(d.now().year, key_value.month, key_value.day )
+
+def t_format(x):
+    ''' returns double didgit format for minute and hour values if needed '''
+    if x < 10:
+        time = f'0{x}'
+        return time
+    else:
+        return x
 
 # defning date variables
 ny = d((d.now().year + 1), 1, 1)
@@ -48,6 +57,7 @@ master.append(ny)
 canada = D('canada day', can)
 canada = canada.display_distance
 master.append(canada)
+
 
 
 for i in master:
