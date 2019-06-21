@@ -4,23 +4,33 @@ import os
 
 class D:
     ''' the date count class '''
-    def __init__(self, label, d1):
-        self.label = label
-        self.d1 = d1
-        self.dist = None
+    def __init__(self, label, d_input):
+        self.label = label.upper()
+        self.d_input = d_input
+        self.dist = cal_dist(d_input)
+        self.dist_months = cal_months(self.dist.days)
+        self.date_formated = d_format(self.d_input)
     
 
     def display_distance(self):
         ''' Calculates distance between two dates and prints results '''
-        if self.d1 > d.now():
-            self.dist = self.d1 - d.now()
-        else:
-            self.dist = d.now() - self.d1
-    
-        print(f'{self.label.upper():} {t_format(self.d1.day)}-{t_format(self.d1.month)}-{self.d1.year}')
-        print(f'- {round(self.dist.days/30, 1)} months')
+        print(f'{self.label:} {self.date_formated}')
+        print(f'- {self.dist_months} months')
         print(f'- {self.dist.days} days')
         print()
+
+def d_format(x):
+    return f'{t_format(x.day)}-{t_format(x.month)}-{x.year}'
+
+def cal_months(x):
+    return round(x/30, 1)
+
+def cal_dist(x):
+    ''' Calculates distance between two dates '''
+    if x > d.now():
+        return x - d.now()
+    else:
+        return d.now() - x
 
 def year_finder(key_value):
     ''' Returns date with appropriate year '''
@@ -44,21 +54,14 @@ canada = year_finder(can)
 
 
 os.system('clear')
-master = []
+
 # creating the countdowns and displaying the results
 bday = D('birthday', bday)
-bday = bday.display_distance
-master.append(bday)
+bday.display_distance()
 
 ny = D('new years', ny)
-ny = ny.display_distance
-master.append(ny)
+ny.display_distance()
 
 canada = D('canada day', can)
-canada = canada.display_distance
-master.append(canada)
+canada.display_distance()
 
-
-
-for i in master:
-    i()
