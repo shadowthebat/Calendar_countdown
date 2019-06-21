@@ -54,14 +54,14 @@ def day_of_week(x):
 
 def thanks_giving(x=d.now().year):
     mondays = []
-    for i in range(1,15):
+    for i in range(1, 15):
         if d(x, 10, i).weekday() == 0:
             mondays.append(i)
     if d(x, 10, mondays[1]) >= d.now():
         return d(x, 10, mondays[1])
     else:
         mondays = []
-        for i in range(1,15):
+        for i in range(1, 15):
             if d(x+1, 10, i).weekday() == 0:
                 mondays.append(i)
         if d(x+1, 10, mondays[1]) >= d.now():
@@ -69,14 +69,14 @@ def thanks_giving(x=d.now().year):
 
 def labour_day(x=d.now().year):
     mondays = []
-    for i in range(1,8):
+    for i in range(1, 8):
         if d(x, 9, i).weekday() == 0:
             mondays.append(i)
     if d(x, 9, mondays[0]) >= d.now():
         return d(x, 9, mondays[0])
     else:
         mondays = []
-        for i in range(1,8):
+        for i in range(1, 8):
             if d(x+1, 9, i).weekday() == 0:
                 mondays.append(i)
         if d(x+1, 9, mondays[0]) >= d.now():
@@ -84,14 +84,14 @@ def labour_day(x=d.now().year):
 
 def victoria_day(x=d.now().year):
     mondays = []
-    for i in range(18,25):
+    for i in range(18, 25):
         if d(x, 5, i).weekday() == 0:
             mondays.append(i)
     if d(x, 5, mondays[0]) >= d.now():
         return d(x, 5, mondays[0])
     else:
         mondays = []
-        for i in range(18,25):
+        for i in range(18, 25):
             if d(x+1, 5, i).weekday() == 0:
                 mondays.append(i)
         if d(x+1, 5, mondays[0]) >= d.now():
@@ -99,15 +99,30 @@ def victoria_day(x=d.now().year):
 
 def mothers_day(x=d.now().year):
     sundays = []
-    for i in range(1,15):
+    for i in range(1, 15):
         if d(x, 5, i).weekday() == 6:
             sundays.append(i)
     if d(x, 5, sundays[1]) >= d.now():
         return d(x, 5, sundays[1])
     else:
         sundays = []
-        for i in range(1,15):
+        for i in range(1, 15):
             if d(x+1, 5, i).weekday() == 6:
                 sundays.append(i)
         if d(x+1, 5, sundays[1]) >= d.now():
             return d(x+1, 5, sundays[1])
+
+def fathers_day(x=d.now().year):
+    sundays = []
+    for i in range(1, 22):
+        if d(x, 6, i).weekday() == 6:
+            sundays.append(i)
+    if d(x, 6, sundays[2]) >= d.now():
+        return d(x, 6, sundays[2])
+    else:
+        sundays = []
+        for i in range(1, 22):
+            if d(x+1, 6, i).weekday() == 6:
+                sundays.append(i)
+        if d(x+1, 6, sundays[2]) >= d.now():
+            return d(x+1, 6, sundays[2])

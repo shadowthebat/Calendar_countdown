@@ -75,6 +75,9 @@ master[andy.dist.days] = andy
 mothers = D('mothers day', mothers_day())
 master[mothers.dist.days] = mothers
 
+fathers = D('fathers day', fathers_day())
+master[fathers.dist.days] = fathers
+
 if len(sys.argv) == 2 and sys.argv[1] == 'head':
     # prints head (5) of calendar
     head = sorted(master.keys(), reverse=True)
