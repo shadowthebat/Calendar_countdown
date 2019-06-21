@@ -1,9 +1,9 @@
 from count_func import *
 from count_key import *
 import os
+import sys
 
-
-# defning date variables
+# defining date variables from datetime objects
 ny = upcomming(ny)
 bday = upcomming(born)
 canada = upcomming(can)
@@ -33,10 +33,10 @@ master[ny.dist.days] = ny
 canada = D('canada day', can)
 master[canada.dist.days] = canada
 
-kbd = D('kaya', kbd)
+kbd = D('kaya\'s bday', kbd)
 master[kbd.dist.days] = kbd
 
-mbd = D('mommy', mbd)
+mbd = D('mom\'s bday', mbd)
 master[mbd.dist.days] = mbd
 
 stj = D('st. jean', stj)
@@ -57,9 +57,25 @@ master[remember.dist.days] = remember
 xmas = D('christmas', xmas)
 master[xmas.dist.days] = xmas
 
+valen = D('valentines day', valen)
+master[valen.dist.days] = valen
+
 stpat = D('st patricks day', stpat)
 master[stpat.dist.days] = stpat
 
-# prints countdowns in chronological order
-for i in sorted(master.keys(), reverse=True):
-    master[i].display()
+if len(sys.argv) == 2 and sys.argv[1] == 'head':
+    # prints head (5) of calendar
+    head = sorted(master.keys(), reverse=True)
+    for i in head[-5:]:
+        master[i].display()
+
+elif len(sys.argv) == 2 and sys.argv[1] == 'tail':
+    # prints tail (5) of calendar
+    tail = sorted(master.keys(), reverse=True)
+    for i in tail[:5]:
+        master[i].display()
+
+else:
+    # prints countdowns in chronological order
+    for i in sorted(master.keys(), reverse=True):
+        master[i].display()
