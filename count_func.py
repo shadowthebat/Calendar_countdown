@@ -1,4 +1,5 @@
 from datetime import datetime as d
+from convertdate import holidays
 
 class D:
     ''' the date count class '''
@@ -132,3 +133,8 @@ def fathers_day(x=d.now().year):
                 sundays.append(i)
         if d(x+1, 6, sundays[2]) >= d.now():
             return d(x+1, 6, sundays[2])
+
+def hanukkah():
+    hanu = holidays.hanukkah(d.now().year)
+    hanu = d(hanu[0], hanu[1], hanu[2])
+    print(hanu)
