@@ -75,7 +75,7 @@ master[labour.dist.days] = labour
 
 thanks = D('thanks giving', thanks_giving())
 master[thanks.dist.days] = thanks
-
+''' sukkot and thanks fall on same day, must solve '''
 hallow = D('halloween', hallow)
 master[hallow.dist.days] = hallow
 

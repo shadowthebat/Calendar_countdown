@@ -16,7 +16,7 @@ class D:
         ''' Displays the distance between two dates '''
         print(f'{self.label:} {self.date_formated} {self.day_of_week}')
         print(f'- {self.dist_months} months')
-        print(f'- {self.dist.days} days')
+        print(f'- {self.dist.days+1} days')
         print()
 
 def d_format(x):
@@ -133,8 +133,3 @@ def fathers_day(x=d.now().year):
                 sundays.append(i)
         if d(x+1, 6, sundays[2]) >= d.now():
             return d(x+1, 6, sundays[2])
-
-def hanukkah():
-    hanu = holidays.hanukkah(d.now().year)
-    hanu = d(hanu[0], hanu[1], hanu[2])
-    print(hanu)
