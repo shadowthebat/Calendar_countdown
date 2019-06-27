@@ -75,7 +75,7 @@ master[labour.dist.days] = labour
 
 thanks = D('thanks giving', thanks_giving())
 master[thanks.dist.days] = thanks
-''' sukkot and thanks fall on same day, must solve '''
+
 hallow = D('halloween', hallow)
 master[hallow.dist.days] = hallow
 
@@ -124,9 +124,10 @@ master[passover.dist.days] = passover
 
 shavuot = D('shavuot', shavuot)
 master[shavuot.dist.days] = shavuot
-
+''' sukkot and thanks fall on same day, must solve '''
 sukkot = D('sukkot', sukkot)
-master[sukkot.dist.days] = sukkot
+master[sukkot.dist.days+1] = sukkot
+# temporary quick fix: add 1 so keys wont overlap
 
 
 
