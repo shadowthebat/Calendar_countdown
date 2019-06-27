@@ -25,6 +25,8 @@ def d_format(x):
 
 def cal_months(x):
     ''' converts days remaining to months remaining'''
+    
+    
     return round(x/30, 1)
 
 def cal_dist(x):
@@ -51,7 +53,7 @@ def t_format(x):
 
 def day_of_week(x):
     ''' converts weekday() digit to human readable weekday '''
-    days = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday' ,3: 'Thursday' ,4: 'Friday',5: 'Saturday' ,6: 'Sunday'}
+    days = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday'}
     return days[x.weekday()]
 
 def thanks_giving(x=d.now().year):
@@ -63,12 +65,7 @@ def thanks_giving(x=d.now().year):
     if d(x, 10, mondays[1]) >= d.now():
         return d(x, 10, mondays[1])
     else:
-        mondays = []
-        for i in range(1, 15):
-            if d(x+1, 10, i).weekday() == 0:
-                mondays.append(i)
-        if d(x+1, 10, mondays[1]) >= d.now():
-            return d(x+1, 10, mondays[1])
+        return thanks_giving(x+1)
 
 def labour_day(x=d.now().year):
     ''' first monday of september '''
@@ -79,12 +76,7 @@ def labour_day(x=d.now().year):
     if d(x, 9, mondays[0]) >= d.now():
         return d(x, 9, mondays[0])
     else:
-        mondays = []
-        for i in range(1, 8):
-            if d(x+1, 9, i).weekday() == 0:
-                mondays.append(i)
-        if d(x+1, 9, mondays[0]) >= d.now():
-            return d(x+1, 9, mondays[0])
+        return labour_day(x+1)
 
 def victoria_day(x=d.now().year):
     ''' monday between the 18th and 24th of may inclusive '''
@@ -95,12 +87,7 @@ def victoria_day(x=d.now().year):
     if d(x, 5, mondays[0]) >= d.now():
         return d(x, 5, mondays[0])
     else:
-        mondays = []
-        for i in range(18, 25):
-            if d(x+1, 5, i).weekday() == 0:
-                mondays.append(i)
-        if d(x+1, 5, mondays[0]) >= d.now():
-            return d(x+1, 5, mondays[0])
+        return victoria_day(x+1)
 
 def mothers_day(x=d.now().year):
     ''' second sunday of may '''
@@ -111,12 +98,7 @@ def mothers_day(x=d.now().year):
     if d(x, 5, sundays[1]) >= d.now():
         return d(x, 5, sundays[1])
     else:
-        sundays = []
-        for i in range(1, 15):
-            if d(x+1, 5, i).weekday() == 6:
-                sundays.append(i)
-        if d(x+1, 5, sundays[1]) >= d.now():
-            return d(x+1, 5, sundays[1])
+        return mothers_day(x+1)
 
 def fathers_day(x=d.now().year):
     ''' third sunday in june '''
@@ -127,9 +109,4 @@ def fathers_day(x=d.now().year):
     if d(x, 6, sundays[2]) >= d.now():
         return d(x, 6, sundays[2])
     else:
-        sundays = []
-        for i in range(1, 22):
-            if d(x+1, 6, i).weekday() == 6:
-                sundays.append(i)
-        if d(x+1, 6, sundays[2]) >= d.now():
-            return d(x+1, 6, sundays[2])
+        return fathers_day(x+1)
