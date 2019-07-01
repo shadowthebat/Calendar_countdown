@@ -38,10 +38,11 @@ def cal_dist(x):
 
 def upcomming(key_value):
     ''' Returns date with appropriate year '''
-    if d.now().month >= key_value.month and d.now().day >= key_value.day:
+    if key_value <= d.now():
         return d(d.now().year + 1, key_value.month, key_value.day)
     else:
-        return d(d.now().year, key_value.month, key_value.day )
+        # return d(d.now().year, key_value.month, key_value.day)
+        return d(d.now().year, key_value.month, key_value.day)
 
 def t_format(x):
     ''' returns double digit format for minute and hour values if needed '''

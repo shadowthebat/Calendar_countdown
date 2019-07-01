@@ -5,8 +5,8 @@ import sys
 
 # define date variables with correct year if needed
 ny = upcomming(ny)
-bday = upcomming(born)
-canada = upcomming(can)
+bday = upcomming(bday)
+canada = upcomming(canada)
 kbd = upcomming(kbd)
 mbd = upcomming(mbd)
 stj = upcomming(stj)
@@ -58,7 +58,7 @@ master[bday.dist.days] = bday
 ny = D('new years', ny)
 master[ny.dist.days] = ny
 
-canada = D('canada day', can)
+canada = D('canada day', canada)
 master[canada.dist.days] = canada
 
 kbd = D('kaya\'s bday', kbd)
@@ -147,4 +147,3 @@ else:
     # prints calendar in chronological order
     for i in sorted(master.keys(), reverse=True):
         master[i].display()
-
