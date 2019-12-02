@@ -143,6 +143,17 @@ elif len(sys.argv) == 2 and sys.argv[1] == 'tail':
     for i in tail[:5]:
         master[i].display()
 
+elif len(sys.argv) == 2 and sys.argv[1] == 'add':
+    # add upcoming event
+    event_label = input('Name of event: ')
+    event_date_string = input('dd/mm/yyyy: ')
+    e_day = input('Day: ')
+    e_month = input('Month: ')
+    event = d(d.now(), int(e_month), int(e_day))
+    event = upcomming(event)
+    event = D(event_label, event)
+    master[event.dist.days] = event
+
 else:
     # prints calendar in chronological order
     for i in sorted(master.keys(), reverse=True):
