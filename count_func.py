@@ -1,5 +1,19 @@
 from datetime import datetime as d
 from convertdate import holidays
+from count_key import key
+
+## create schedule class to contain all D's(events)
+## create print schedule method
+## update existing code / functions
+## determin upcomming >= <= delema and integrate into
+## holiday functions
+## find better data structure to store events
+## switch from dict to ordered list or queue, stack or linkedlist
+## brainstorm consider options
+
+## schedule should have pre set dates
+## schedule should be able to add dates?
+## store data in txt maybe or json
 
 class D:
     ''' the date count class '''
@@ -10,8 +24,8 @@ class D:
         self.dist_months = cal_months(self.dist.days)
         self.date_formated = d_format(self.d_input)
         self.day_of_week = day_of_week(self.d_input)
-    
-    
+
+
     def display(self):
         ''' Displays the distance between two dates '''
         print(f'{self.label:} {self.date_formated} {self.day_of_week}')
@@ -19,14 +33,18 @@ class D:
         print(f'- {self.dist.days+1} days')
         print()
 
+class Schedule():
+    def __init__(self):
+        self.events = []
+
 def d_format(x):
     ''' returns date formated dd-mm-yyyy '''
     return f'{t_format(x.day)}-{t_format(x.month)}-{x.year}'
 
 def cal_months(x):
     ''' converts days remaining to months remaining'''
-    
-    
+
+
     return round(x/30, 1)
 
 def cal_dist(x):
