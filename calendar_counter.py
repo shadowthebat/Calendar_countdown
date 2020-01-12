@@ -2,7 +2,7 @@ from count_func import *
 from count_key import *
 import os
 import sys
-ghjgh
+
 # define date variables with correct year if needed
 ny = upcomming(ny)
 bday = upcomming(bday)
