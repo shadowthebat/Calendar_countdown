@@ -42,7 +42,7 @@ sukkot = d(sukkot[0], sukkot[1], sukkot[2])
 key = [bday, kbd, mbd, canada, ny, stj, hallow, remember, xmas, valen, stpat, nana, andy, hanu, purim, rosh_hashanah, yom_kippur, passover, shavuot, sukkot]
 
 labels = ['birthday', 'kaya\'s bday',
-'mom\'s bday','canada da','new years',
+'mom\'s bday','canada day','new years',
 'st. jean', 'halloween','rememberance day','christmas',
 'valentines','st patricks day','nana\'s bday',
 'andy\'s bday','hannuka','purim','rosh hashana','yom kipur','passover', 'shavuot', 'sukkot']

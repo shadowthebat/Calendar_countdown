@@ -49,7 +49,7 @@ class Schedule:
         tail = sorted(self.master.keys(), reverse=True)
         for i in tail[:5]:
             self.master[i].display()
-            
+
     def len(self):
         return len(self.master)
 
