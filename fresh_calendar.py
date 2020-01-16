@@ -4,7 +4,7 @@ import os
 import sys
 from convertdate import holidays
 
-
+# -- Classes --
 class Event:
     def __init__(self, label, datee):
         self.label = label.upper()
@@ -49,6 +49,8 @@ class Schedule:
         for i in tail[:5]:
             self.master[i].display()
 
+
+# -- Functions --
 def d_format(x):
     ''' returns date formated dd-mm-yyyy '''
     return f'{t_format(x.day)}-{t_format(x.month)}-{x.year}'

@@ -39,7 +39,7 @@ def d_format(x):
 
 def cal_months(x):
     ''' converts days remaining to months remaining'''
-
+    
 
     return round(x/30, 1)
 
