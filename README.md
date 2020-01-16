@@ -1,6 +1,8 @@
 Simple countdown calendar.
 - create calendar by adding dates or 'events'
 -   create list of datetime objects
+-   set with CURRENT YEAR and desired day/month
+-   the year will automatically update
 -   create corresponding list of labels in same order as datetime objects
 
 - example:
