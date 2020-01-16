@@ -1,30 +1,18 @@
-from datetime import datetime as d
+from count_key import *
+from count_func import *
+import os
+import sys
 from convertdate import holidays
-from count_key import key
 
-## create schedule class to contain all D's(events)
-## create print schedule method
-## update existing code / functions
-## determin upcomming >= <= delema and integrate into
-## holiday functions
-## find better data structure to store events
-## switch from dict to ordered list or queue, stack or linkedlist
-## brainstorm consider options
 
-## schedule should have pre set dates
-## schedule should be able to add dates?
-## store data in txt maybe or json
-
-class D:
-    ''' the date count class '''
-    def __init__(self, label, d_input):
+class Event:
+    def __init__(self, label, datee):
         self.label = label.upper()
-        self.d_input = d_input
-        self.dist = cal_dist(d_input)
+        self.datee = upcomming(datee)
+        self.dist = cal_dist(self.datee)
         self.dist_months = cal_months(self.dist.days)
-        self.date_formated = d_format(self.d_input)
-        self.day_of_week = day_of_week(self.d_input)
-
+        self.date_formated = d_format(self.datee)
+        self.day_of_week = day_of_week(self.datee)
 
     def display(self):
         ''' Displays the distance between two dates '''
@@ -33,14 +21,40 @@ class D:
         print(f'- {self.dist.days+1} days')
         print()
 
+
+class Schedule:
+    def __init__(self):
+        self.master = {}
+        for j, k in zip(labels, key):
+            e = Event(j, k)
+            if e.dist.days in self.master.keys():
+                self.master[e.dist.days + 0.1] = e
+            else:
+                self.master[e.dist.days] = e
+
+    def display(self):
+        # prints calendar in chronological order
+        for i in sorted(self.master.keys(), reverse = True):
+            self.master[i].display()
+
+    def head(self):
+        # prints head (5) of calendar
+        head = sorted(self.master.keys(), reverse=True)
+        for i in head[-5:]:
+            self.master[i].display()
+
+    def tail(self):
+        # prints tail (5) of calendar
+        tail = sorted(self.master.keys(), reverse=True)
+        for i in tail[:5]:
+            self.master[i].display()
+
 def d_format(x):
     ''' returns date formated dd-mm-yyyy '''
     return f'{t_format(x.day)}-{t_format(x.month)}-{x.year}'
 
 def cal_months(x):
     ''' converts days remaining to months remaining'''
-
-
     return round(x/30, 1)
 
 def cal_dist(x):
