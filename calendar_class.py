@@ -28,10 +28,10 @@ class Schedule:
         self.master = {}
         for j, k in zip(labels, key):
             e = Event(j, k)
-            if e.dist.days in self.master.keys():
-                self.master[e.dist.days + 0.1] = e
-            else:
-                self.master[e.dist.days] = e
+            increment = 0
+            while e.dist.days + increment in self.master.keys():
+                increment += 0.01
+            self.master[e.dist.days + increment] = e
 
     def display(self):
         ''' prints calendar in chronological order '''
@@ -49,6 +49,9 @@ class Schedule:
         tail = sorted(self.master.keys(), reverse=True)
         for i in tail[:5]:
             self.master[i].display()
+            
+    def len(self):
+        return len(self.master)
 
 
 # -- Functions --
