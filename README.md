@@ -19,8 +19,9 @@ Simple countdown calendar.
 -   labels = ['canada day', 'new years day']
 
 - display number of days and weeks until event
-- optional arguments include: head, tail
+- optional arguments include: head, tail, len
 - example:
 - 	python calendar_fresh.py (displays all countdown events chronologically)
 -	python calendar_fresh.py head (displays closest 5 results)
 -	python calendar_fresh.py tail (displays furthest 5 results)
+-	python calendar_fresh.py len (displays total number of events)

@@ -1,6 +1,7 @@
 from convertdate import holidays
 from odd_dates import *
 
+
 # Define Datetime objects
 bday = d(d.now().year, 8, 7)
 kbd = d(d.now().year, 5, 9)
@@ -45,10 +46,16 @@ shavuot = d(shavuot[0], shavuot[1], shavuot[2])
 sukkot = holidays.sukkot(d.now().year)
 sukkot = d(sukkot[0], sukkot[1], sukkot[2])
 
-key = [bday, kbd, mbd, canada, ny, stj, hallow, remember, xmas, valen, stpat, nana, andy, fathers_day, mothers_day, victoria_day, labour_day, thanks_giving, hanu, purim, rosh_hashanah, yom_kippur, passover, shavuot, sukkot]
+key = [bday, kbd, mbd, canada, ny, stj, hallow, remember,
+xmas, valen, stpat, nana, andy, fathers_day, mothers_day,
+victoria_day, labour_day, thanks_giving, hanu, purim,
+rosh_hashanah, yom_kippur, passover, shavuot, sukkot]
 
 labels = ['birthday', 'kaya\'s bday',
 'mom\'s bday','canada day','new years',
 'st. jean', 'halloween','rememberance day','christmas',
-'valentines','st patricks day','nana\'s bday',
-'andy\'s bday', 'father\'s day', 'mother\'s day', 'victoria day', 'labour day', 'thanks giving', 'hannuka','purim','rosh hashana','yom kipur','passover', 'shavuot', 'sukkot']
+'valentines day','st patricks day','nana\'s bday',
+'andy\'s bday', 'father\'s day', 'mother\'s day',
+'victoria day', 'labour day', 'thanks giving',
+'hanukkah','purim','rosh hashanah','yom kippur',
+'passover', 'shavuot', 'sukkot']

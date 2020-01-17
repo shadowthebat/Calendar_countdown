@@ -1,5 +1,6 @@
 from key import *
 
+
 # -- Classes --
 class Event:
     def __init__(self, label, datee):
@@ -84,5 +85,6 @@ def t_format(x):
 
 def day_of_week(x):
     ''' converts weekday() digit to human readable weekday '''
-    days = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday'}
+    days = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday',
+    4: 'Friday', 5: 'Saturday', 6: 'Sunday'}
     return days[x.weekday()]

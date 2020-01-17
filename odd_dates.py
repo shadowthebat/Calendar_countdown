@@ -1,6 +1,7 @@
 from datetime import datetime as d
 
 
+# -- Odd Date Functions --
 def thanks_giving(x=d.now().year):
     ''' second monday of october '''
     mondays = []

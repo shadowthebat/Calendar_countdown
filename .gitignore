@@ -1,5 +1,4 @@
 *.DC_Store
 *.project
 *.pyc
-count_key.py
-testcount.py
+key.py

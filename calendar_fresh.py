@@ -15,8 +15,13 @@ elif len(sys.argv) == 2 and sys.argv[1] == 'tail':
     os.system('clear')
     sched.tail()
 
+elif len(sys.argv) == 2 and sys.argv[1] == 'len':
+    # prints length of Schedule
+    print(sched.len())
+
 else:
     # prints calendar in chronological order
     os.system('clear') # will show up as JHJ in atom, no fuss
     os.system('clear')
     sched.display()
+    # print(f'total: {sched.len()}')
