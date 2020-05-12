@@ -73,7 +73,7 @@ def upcomming(key_value):
     if key_value <= d.now():
         return d(d.now().year + 1, key_value.month, key_value.day)
     else:
-        return d(d.now().year, key_value.month, key_value.day)
+        return key_value
 
 def t_format(x):
     ''' returns double digit format for minute and hour values if needed '''
