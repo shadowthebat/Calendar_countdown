@@ -1,0 +1,6 @@
+just a reminder to update the README
+to include recent addition of
+ADD EVENT and REMOVE EVENT
+
+note: user may only remove events previously added with ADD EVENT, 
+default events may not be removed.

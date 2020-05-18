@@ -11,17 +11,16 @@ def remove_event(label):
     """ tmp desc """
     with open('key.py', 'r') as f:
         key_file = f.read()
-    r = key_file
 
-    # remove datetime object
+    # remove datetime object from key.py>## EXTRA
     to_rm_dt = re.search(label, key_file)
     key_file = remove_string(key_file, to_rm_dt.span()[0]-1, to_rm_dt.span()[1]+17)
 
-    # remove key
+    # remove key from key.py>key_plus
     to_rm_key = re.search(label, key_file)
     key_file = remove_string(key_file, to_rm_key.span()[0], to_rm_key.span()[1]+2)
 
-    # remove label
+    # remove label from key.py>label_plus
     to_remove_label = re.search(label, key_file)
     key_file = remove_string(key_file, to_remove_label.span()[0]-1, to_remove_label.span()[1]+3)
 

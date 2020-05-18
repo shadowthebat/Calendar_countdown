@@ -3,6 +3,7 @@ import os
 import sys
 from add_event import *
 from remove_event import *
+from key import labels_plus
 
 
 sched = Schedule()
@@ -33,8 +34,11 @@ elif len(sys.argv) == 4 and sys.argv[1] == '-t':
 
 elif len(sys.argv) == 3 and sys.argv[1] == '-r':
     # add event to calendar x_num days away
-    remove_event(sys.argv[2])
-    print(f'Event removed: {sys.argv[2]}')
+    if sys.argv[2] in labels_plus:
+        remove_event(sys.argv[2])
+        print(f'Event removed: {sys.argv[2]}')
+    else:
+        print(f'Event cannot be removed: {sys.argv[2]}')
 
 else:
     # prints calendar in chronological order
