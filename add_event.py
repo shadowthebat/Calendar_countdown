@@ -5,14 +5,14 @@ import sys
 from datetime import timedelta as td
 
 def insert_string(cur_str, add_str, pos):
+    """ Insert substring into string at index"""
     beginning = cur_str[:pos]
     added = add_str
     end = cur_str[pos:]
     return f'{beginning}{added}{end}'
 
 def add_event_by_date(title, day, month):
-    """ temp_description """
-
+    """ Updates key.py with added date info """
     with open('key.py', 'r') as f:
         key_file = f.read()
 
@@ -33,12 +33,13 @@ def add_event_by_date(title, day, month):
     key_file = insert_string(key_file, label_title, l.span()[1]+4)
 
     with open('key.py', 'w') as f:
+        # Overwrites key.py with update
         f.write(key_file)
     return
 
 
 def add_event_by_dist_days(title, dist_days):
-    """ tmp desc """
+    """ Updates key.py with added date info """
     with open('key.py', 'r') as f:
         key_file = f.read()
 
@@ -60,20 +61,6 @@ def add_event_by_dist_days(title, dist_days):
     key_file = insert_string(key_file, label_title, l.span()[1]+4)
 
     with open('key.py', 'w') as f:
+        # Overwrites key.py with update
         f.write(key_file)
     return
-
-
-'''
-
-goal: add dates from terminal.
-ex:
-    call -a {label} {d} {m}
-    call -t {label} {num_days}
-
-
-goal: remove dates from terminal
-ex:
-    call -r {label}
-
-'''

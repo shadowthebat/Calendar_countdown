@@ -5,10 +5,11 @@ import sys
 
 
 def remove_string(cur_str, x, y):
+    """ Removes substring from index x to index y """
     return cur_str[:x] + cur_str[y:]
 
 def remove_event(label):
-    """ tmp desc """
+    """ Removes datetime key and label from key.py """
     with open('key.py', 'r') as f:
         key_file = f.read()
 
@@ -25,20 +26,6 @@ def remove_event(label):
     key_file = remove_string(key_file, to_remove_label.span()[0]-1, to_remove_label.span()[1]+3)
 
     with open('key.py', 'w') as f:
+        # Overwrites key.py with update
         f.write(key_file)
     return
-
-
-'''
-
-goal: add dates from terminal.
-ex:
-    call -a {label} {d} {m}
-    call -t {label} {num_days}
-
-
-goal: remove dates from terminal
-ex:
-    call -r {label}
-
-'''

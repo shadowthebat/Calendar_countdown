@@ -26,13 +26,17 @@ class Schedule:
         ''' Full Schedule arranged chronologically '''
         self.master = {}
         for j, k in zip(labels, key):
+            # add default dates to calendar
             e = Event(j, k)
             increment = 0
             while e.dist.days + increment in self.master.keys():
                 increment += 0.01
             self.master[e.dist.days + increment] = e
+            
         for j, k in zip(labels_plus, key_plus):
+            # add additional dates to calendar
             if k <= d.now():
+                # Auto-remove expired dates
                 remove_event(j)
             else:
                 e = Event(j, k)

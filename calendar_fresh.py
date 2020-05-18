@@ -6,20 +6,21 @@ from remove_event import *
 from key import labels_plus
 
 
-sched = Schedule()
-
 if len(sys.argv) == 2 and sys.argv[1] == 'head':
     # prints head (5) of calendar
+    sched = Schedule()
     os.system('clear')
     sched.head()
 
 elif len(sys.argv) == 2 and sys.argv[1] == 'tail':
     # prints tail (5) of calendar
+    sched = Schedule()
     os.system('clear')
     sched.tail()
 
 elif len(sys.argv) == 2 and sys.argv[1] == 'len':
     # prints length of Schedule
+    sched = Schedule()
     print(sched.len())
 
 elif len(sys.argv) == 5 and sys.argv[1] == '-a':
@@ -33,7 +34,7 @@ elif len(sys.argv) == 4 and sys.argv[1] == '-t':
     print(f'Event added: {sys.argv[2]}')
 
 elif len(sys.argv) == 3 and sys.argv[1] == '-r':
-    # add event to calendar x_num days away
+    # removes event from calendar
     if sys.argv[2] in labels_plus:
         remove_event(sys.argv[2])
         print(f'Event removed: {sys.argv[2]}')
@@ -41,17 +42,9 @@ elif len(sys.argv) == 3 and sys.argv[1] == '-r':
         print(f'Event cannot be removed: {sys.argv[2]}')
 
 else:
-    # prints calendar in chronological order
-    os.system('clear') # will show up as JHJ in atom, no fuss
+    # prints full calendar in chronological order
+    sched = Schedule()
+    os.system('clear')
     os.system('clear')
     sched.display()
     # print(f'total: {sched.len()}')
-
-''' REMOVE FUNCTION BUGS
-
-elif len(sys.argv) == 3 and sys.argv[1] == '-r':
-    # add event to calendar x_num days away
-    remove_event(sys.argv[2])
-    print(f'Event removed: {sys.argv[2]}')
-
-'''
