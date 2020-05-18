@@ -1,7 +1,8 @@
 from calendar_class import *
 import os
 import sys
-from add_remove import *
+from add_event import *
+from remove_event import *
 
 
 sched = Schedule()
@@ -30,6 +31,18 @@ elif len(sys.argv) == 4 and sys.argv[1] == '-t':
     add_event_by_dist_days(sys.argv[2], sys.argv[3])
     print(f'Event added: {sys.argv[2]}')
 
+elif len(sys.argv) == 3 and sys.argv[1] == '-r':
+    # add event to calendar x_num days away
+    remove_event(sys.argv[2])
+    print(f'Event removed: {sys.argv[2]}')
+
+else:
+    # prints calendar in chronological order
+    os.system('clear') # will show up as JHJ in atom, no fuss
+    os.system('clear')
+    sched.display()
+    # print(f'total: {sched.len()}')
+
 ''' REMOVE FUNCTION BUGS
 
 elif len(sys.argv) == 3 and sys.argv[1] == '-r':
@@ -38,10 +51,3 @@ elif len(sys.argv) == 3 and sys.argv[1] == '-r':
     print(f'Event removed: {sys.argv[2]}')
 
 '''
-
-else:
-    # prints calendar in chronological order
-    os.system('clear') # will show up as JHJ in atom, no fuss
-    os.system('clear')
-    sched.display()
-    # print(f'total: {sched.len()}')

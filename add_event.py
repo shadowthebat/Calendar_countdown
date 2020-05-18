@@ -10,29 +10,13 @@ def insert_string(cur_str, add_str, pos):
     end = cur_str[pos:]
     return f'{beginning}{added}{end}'
 
-def remove_string(cur_str, x, y):
-    return cur_str[:x] + cur_str[y:]
-
-def rm_dt(cur_str, x, y):
-    new_string = remove_string(cur_str, x-1, y+25)
-    return new_string
-
-def rm_key(cur_str, x, y):
-    new_string = remove_string(cur_str, x, y+2)
-    return new_string
-
-def rm_label(cur_str, x, y):
-    new_string = remove_string(cur_str, x-1 , y+3)
-    return new_string
-
-
 def add_event_by_date(title, day, month):
     """ temp_description """
 
     with open('key.py', 'r') as f:
         key_file = f.read()
 
-    add_date_object = f"{title} = d(d.now().year, {month}, {day})\n"
+    add_date_object = f"{title} = d({d.now().year}, {month}, {day})\n"
     key_title = f'{title}, '
     label_title = f'\'{title}\', '
 
@@ -41,11 +25,11 @@ def add_event_by_date(title, day, month):
     key_file = insert_string(key_file, add_date_object, a.span()[1]+1)
 
     # update list: key
-    k = re.search(r'key', key_file)
+    k = re.search(r'key_plus', key_file)
     key_file = insert_string(key_file, key_title, k.span()[1]+4)
 
     # update list: labels
-    l = re.search(r'labels', key_file)
+    l = re.search(r'labels_plus', key_file)
     key_file = insert_string(key_file, label_title, l.span()[1]+4)
 
     with open('key.py', 'w') as f:
@@ -68,33 +52,12 @@ def add_event_by_dist_days(title, dist_days):
     key_file = insert_string(key_file, add_date_object, a.span()[1]+1)
 
     # update list: key
-    k = re.search(r'key', key_file)
+    k = re.search(r'key_plus', key_file)
     key_file = insert_string(key_file, key_title, k.span()[1]+4)
 
     # update list: labels
-    l = re.search(r'labels', key_file)
+    l = re.search(r'labels_plus', key_file)
     key_file = insert_string(key_file, label_title, l.span()[1]+4)
-
-    with open('key.py', 'w') as f:
-        f.write(key_file)
-    return
-
-
-def remove_event(label):
-    """ tmp desc """
-    with open('key.py', 'r') as f:
-        key_file = f.read()
-    r = key_file
-
-    # remove datetime object
-    to_remove_dt = re.search(label, key_file)
-    key_file = rm_dt(key_file, to_remove_dt.span()[0], to_remove_dt.span()[1])
-
-    to_rm_key = re.search(label, key_file)
-    key_file = rm_key(key_file, to_rm_key.span()[0], to_rm_key.span()[1])
-
-    to_remove_label = re.search(label, key_file)
-    key_file = rm_label(key_file, to_remove_label.span()[0], to_remove_label.span()[1])
 
     with open('key.py', 'w') as f:
         f.write(key_file)

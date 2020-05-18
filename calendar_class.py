@@ -30,6 +30,12 @@ class Schedule:
             while e.dist.days + increment in self.master.keys():
                 increment += 0.01
             self.master[e.dist.days + increment] = e
+        for j, k in zip(labels_plus, key_plus):
+            e = Event(j, k)
+            increment = 0
+            while e.dist.days + increment in self.master.keys():
+                increment += 0.01
+            self.master[e.dist.days + increment] = e
 
     def display(self):
         ''' prints calendar in chronological order '''
